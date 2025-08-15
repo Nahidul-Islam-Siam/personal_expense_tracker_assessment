@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --text-color: #171B26;
+  --primary-color: #28543F;
+  --secondary-color: #0F1F18;
+  --soft-color: #F2F8F3;
+  --third-color: #F3E9D2;
+  --background: #ffffff;
+  --foreground: #171717;
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #fff;
+    --foreground: #86a0b0;
+  }
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  background: linear-gradient(90deg, #000 50%, #0000 0) right/200% 100%;
+  animation: l21 2s infinite linear;
+}
+.loader::before {
+  content: "Loading...";
+  color: #0000;
+  padding: 0 5px;
+  background: inherit;
+  background-image: linear-gradient(90deg, #fff 50%, #000 0);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@keyframes l21 {
+  100% {
+    background-position: left;
+  }
+}
+
+
+
+
+@keyframes l21 {
+  100% {
+    background-position: left;
+  }
+}
+
+/* Small screens (sm) */
+@media (min-width: 640px) {
+  .section-gap {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+/* Medium screens (md) */
+@media (min-width: 768px) {
+  .section-gap {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Large screens (lg) */
+@media (min-width: 1024px) {
+  .section-gap {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+/* Extra-large screens (xl) */
+@media (min-width: 1280px) {
+  .section-gap {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+/* 2X Large screens (2xl) */
+@media (min-width: 1536px) {
+  .section-gap {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Small screens (sm) */
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Medium screens (md) */
+@media (min-width: 768px) {
+  .container {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+}
+
+/* Large screens (lg) */
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Extra-large screens (xl) */
+@media (min-width: 1280px) {
+  .container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+/* 2X Large screens (2xl) */
+@media (min-width: 1536px) {
+  .container {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}
