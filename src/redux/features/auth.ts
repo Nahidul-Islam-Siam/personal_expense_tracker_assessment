@@ -2,10 +2,10 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type UserType = {
   email: string;
-  exp: number;
-  iat: number;
-  role: string;
-  userId: string;
+  exp?: number;
+  iat?: number;
+  role?: string;
+  userId?: string;
 };
 interface AuthSate {
   user: UserType | null;

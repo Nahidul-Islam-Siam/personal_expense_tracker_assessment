@@ -1,3 +1,4 @@
+'use client'
 import ExpenseTrackerContainer from "@/components/Home/Expense-tracker-container";
 
 

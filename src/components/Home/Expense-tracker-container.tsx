@@ -13,7 +13,7 @@ import {
   Table,
   Tag,
   Space,
-  Typography,
+
   Row,
   Col,
   Statistic,
@@ -31,10 +31,11 @@ WarningOutlined,
 import type { ColumnsType } from "antd/es/table"
 import dayjs from "dayjs"
 import ExpenseChart from "./PieChart"
+import Header from "../shared/Navbar/Navbar"
 
 
-const { Header, Content } = Layout
-const { Title } = Typography
+const {  Content } = Layout
+
 const { Option } = Select
 
 interface Expense {
@@ -210,14 +211,7 @@ export default function ExpenseTrackerContainer() {
 
   return (
     <Layout className="min-h-screen">
-      <Header className="bg-white shadow-sm">
-        <div className="flex items-center justify-between max-w-7xl mx-auto px-4">
-          <Title level={3} className="!mb-0 !text-blue-600">
-            💰 Personal Expense Tracker
-          </Title>
-        </div>
-      </Header>
-
+           <Header />
       <Content className="p-6 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           {/* Statistics Cards */}

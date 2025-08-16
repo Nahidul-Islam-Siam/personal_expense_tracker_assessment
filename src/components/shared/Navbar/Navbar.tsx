@@ -102,7 +102,7 @@ const Header = () => {
         {user ? (
           <UserDropdown user={user} onLogout={logout} />
         ) : (
-          <Link href="/login">
+          <Link href="/auth/login">
             <Button size="small" icon={<LoginOutlined />}>
               Sign In
             </Button>

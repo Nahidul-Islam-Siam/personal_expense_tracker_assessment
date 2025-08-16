@@ -1,60 +1,96 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { baseApi } from "@/redux/api/baseApi";
+// types/auth.ts (or inside the same file if small)
+export interface User {
+  id: string;
+  email: string;
+  name: string;
+}
 
-interface LoginRequest {
+export interface AuthResponse {
+  success: boolean;
+  message: string;
+  data: {
+    user: User;
+    accessToken: string;
+    refreshToken: string;
+  };
+}
+
+export interface LoginRequest {
   email: string;
   password: string;
 }
 
+export interface ChangePasswordRequest {
+  oldPassword: string;
+  newPassword: string;
+}
+
+export interface ForgotPasswordRequest {
+  email: string;
+}
+
+export interface ResetPasswordRequest {
+  token: string;
+  newPassword: string;
+}
+
+
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { baseApi } from "@/redux/api/baseApi";
+
+
 const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    registerUser: builder.mutation({
-      query: (user) => ({
+    registerUser: builder.mutation<AuthResponse, { name: string; email: string; password: string }>({
+      query: (userData) => ({
         url: "/auth/register",
         method: "POST",
-        body: user,
+        body: userData,
       }),
       invalidatesTags: ["auth"],
     }),
-    loginUser: builder.mutation<any, LoginRequest>({
-      query: (user) => ({
+
+    loginUser: builder.mutation<AuthResponse, LoginRequest>({
+      query: (loginData) => ({
         url: "/auth/login",
         method: "POST",
-        body: user,
+        body: loginData,
       }),
       invalidatesTags: ["auth"],
     }),
-    logout: builder.mutation({
+
+    logout: builder.mutation<void, void>({
       query: () => ({
         url: "/auth/logout",
         method: "POST",
       }),
       invalidatesTags: ["auth"],
     }),
-    forgatPassword: builder.mutation<any, { email: string }>({
-      query: (user) => ({
+
+    changePassword: builder.mutation<AuthResponse, ChangePasswordRequest>({
+      query: (data) => ({
+        url: "/auth/change-password",
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["auth"],
+    }),
+
+    forgotPassword: builder.mutation<AuthResponse, ForgotPasswordRequest>({
+      query: (data) => ({
         url: "/auth/forgot-password",
         method: "POST",
-        body: user,
+        body: data,
       }),
       invalidatesTags: ["auth"],
     }),
-    resetPassword: builder.mutation({
-      query: ({ token, user }) => ({
+
+    resetPassword: builder.mutation<AuthResponse, ResetPasswordRequest>({
+      query: (data) => ({
         url: "/auth/reset-password",
-        method: "PATCH",
-        body: user,
-        headers: {
-          Authorization: `${token}`,
-        },
-      }),
-      invalidatesTags: ["auth"],
-    }),
-    changePassword: builder.mutation({
-      query: (user) => ({
-        url: "/auth/change-pass",
-        method: "PATCH",
-        body: user,
+        method: "POST",
+        body: data,
       }),
       invalidatesTags: ["auth"],
     }),
@@ -66,7 +102,8 @@ export const {
   useLoginUserMutation,
   useLogoutMutation,
   useChangePasswordMutation,
-  useForgatPasswordMutation,
+  useForgotPasswordMutation,
   useResetPasswordMutation,
 } = authApi;
+
 export const { endpoints: authEndpoints } = authApi;
