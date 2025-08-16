@@ -1,4 +1,4 @@
-import ScrollToTopButton from "@/components/ui/ScrollToTopButton/ScrollToTopButton";
+
 import { NextUiProvider } from "@/lib/providers/NextUIProvider";
 import ReduxProvider from "@/redux/ReduxProvider";
 import type { Metadata } from "next";
@@ -46,7 +46,7 @@ export default function RootLayout({
                 <FacebookPixel />
                 {children}
               </div>
-              <ScrollToTopButton />
+         
               <Toaster />
             </>
           </ReduxProvider>
