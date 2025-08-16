@@ -10,7 +10,7 @@ import { logout, setAccessToken } from "../features/auth";
 
 const baseQuery = fetchBaseQuery({
   // baseUrl: "https://pamelam.code-commando.com/api",
-  baseUrl: "https://roof-cost.onrender.com/api/v1",
+  baseUrl: "https://personaltrackerserver.vercel.app/api/v1",
   // baseUrl: "https://arcroofs.com/api/v1",
   // baseUrl: "http://localhost:3000/api",
   prepareHeaders: (headers, { getState }) => {

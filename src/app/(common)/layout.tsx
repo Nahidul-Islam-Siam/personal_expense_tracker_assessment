@@ -1,5 +1,5 @@
 
-import Navbar from "@/components/shared/Navbar/Navbar";
+
 
 import { NextUiProvider } from "@/lib/providers/NextUIProvider";
 import ReduxProvider from "@/redux/ReduxProvider";
@@ -23,7 +23,7 @@ export default function RootLayout({
         <ReduxProvider>
           <>
             <div className=" flex flex-col max-w-[80w]">
-              <Navbar />
+   
               <main className="flex-grow mt-[96px]">{children}</main>
         
             </div>
